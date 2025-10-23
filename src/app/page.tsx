@@ -1,14 +1,263 @@
+"use client";
 import Button from "@/components/Button";
+import CardHiringTalent, {
+  COLOR_HIRING_CARD,
+} from "@/components/CardHiringTalent";
 import Header from "@/components/Header";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import Image from "next/image";
+import Badge from "@/components/Badge";
+import FeatureSection from "@/components/FeatureSection";
+import CardWhy from "@/components/CardWhy";
+import CardHiringStep from "@/components/CardHiringStep";
+import Switch from "@/components/Switch";
+import CardPrice from "@/components/CardPrice";
+
+const data_card_hiring = [
+  {
+    color: COLOR_HIRING_CARD.BLACK,
+    title: "Hire Developers",
+    image:
+      "https://res.cloudinary.com/dlavqnrlx/image/upload/v1751608443/qyprzyp7u2df29zns209.png",
+    subTitle:
+      "Skilled software engineers, coders, and architects with extensive knowledge in a wide array of technologies and industry sectors.",
+  },
+  {
+    color: COLOR_HIRING_CARD.ORANGE,
+    title: "Hire Designers",
+    image:
+      "https://res.cloudinary.com/dlavqnrlx/image/upload/v1751608443/qyprzyp7u2df29zns209.png",
+    subTitle:
+      " Highly skilled UI, UX designers, illustrators, animators, and other creative professionals at the forefront of design.",
+  },
+  {
+    color: COLOR_HIRING_CARD.GREEN,
+    title: "Hire Product Experts",
+    image:
+      "https://res.cloudinary.com/dlavqnrlx/image/upload/v1751608443/qyprzyp7u2df29zns209.png",
+    subTitle:
+      "Top-tier product managers and owners who have handled the full lifecycle of products at some of the world’s biggest tech companies.",
+  },
+];
+
+const data_card_why = [
+  {
+    title: "Speed",
+    color: "#ABFFC3",
+    metric: (
+      <p className="flex items-center">
+        1-<span className="text-xl">3</span>&nbsp;days
+      </p>
+    ),
+    description: (
+      <p className="text-sm">
+        to fill <span className="font-bold">most roles</span>, sometimes we can
+        start the same day.
+      </p>
+    ),
+  },
+  {
+    title: "Timed Saved",
+    color: "#FCFCFC",
+    metric: (
+      <p className="flex items-center">
+        <span className="text-xl">5</span>0+ hours
+      </p>
+    ),
+    description: (
+      <p className="text-sm">
+        of your teams time saved{" "}
+        <span className="font-bold">per candidate</span> on interviewing
+      </p>
+    ),
+  },
+  {
+    title: "Retention ",
+    color: "#FFB77A",
+    metric: (
+      <p className="flex items-center">
+        <span className="text-xl">3</span>0%
+      </p>
+    ),
+    description: (
+      <p className="text-sm">
+        is the average <span className="font-bold">cost savings</span> our
+        clients experienced.
+      </p>
+    ),
+  },
+];
+
+const data_card_hiring_steps = [
+  {
+    badgeTitle: "Step 1",
+    badgeColor: "#FFB77A",
+    title: "Talk to one of our industry Experts",
+    description:
+      "An expert on our team will work with you to understand your goals, product, technical needs, team dynamics and budget.",
+  },
+  {
+    badgeTitle: "Step 2",
+    badgeColor: "#ABFFC3",
+    title: "Work with hand-selected talent",
+    description:
+      "Within days, we'll introduce you to the right talent for your project. Average time to match is under 24 hours.",
+  },
+  {
+    badgeTitle: "Step 3",
+    badgeColor: "#FFB77A",
+    title: "The right fit, guaranteed",
+    description:
+      "Work with your new team members on a risk-free trial basis, ensuring you hire the right people for the job.",
+  },
+  {
+    badgeTitle: "Step 4",
+    badgeColor: "#ABFFC3",
+    title: "Easy to manage, start to finish",
+    description:
+      "Leverage our remarkable platform for seamless management of payments, reporting, work tracking, communication, and more — ensuring your project's success.",
+  },
+];
+
+const data_card_prices = [
+  {
+    color: "#ABFFC3",
+    title: "Starting Out",
+    description: "What superheroes does your startup need?",
+    price: (
+      <p className="flex text-lg items-center font-semibold">
+        <span className="text-xl">$</span>
+        <span className="text-md">0</span>
+        <span className="text-xl">-$</span>
+        <span className="text-md">20</span>
+        <span className="text-xl">K</span>
+      </p>
+    ),
+    options: [
+      {
+        label: "Developers + Engineers",
+        name: "developers_n_engineers",
+        value: "developers_n_engineers",
+        checked: true,
+        onChange: () => {},
+      },
+      {
+        label: "Designers",
+        name: "designers",
+        value: "designers",
+        checked: false,
+        onChange: () => {},
+      },
+      {
+        label: "Product / Project Experts",
+        name: "product_or_project_experts",
+        value: "product_or_project_experts",
+        checked: false,
+        onChange: () => {},
+      },
+      {
+        label: "Consultancy",
+        name: "consultancy",
+        value: "consultancy",
+        checked: false,
+        onChange: () => {},
+      },
+    ],
+  },
+  {
+    color: "#0D0D0D",
+    title: "Booming Business",
+    description: "What type of legends does your booming business need?",
+    price: (
+      <p className="flex text-lg items-center font-semibold">
+        <span className="text-xl">$</span>
+        <span className="text-md">20</span>
+        <span className="text-xl">-$</span>
+        <span className="text-md">100</span>
+        <span className="text-xl">K</span>
+      </p>
+    ),
+    options: [
+      {
+        label: "Developers + Engineers",
+        name: "developers_n_engineers",
+        value: "developers_n_engineers",
+        checked: true,
+        onChange: () => {},
+      },
+      {
+        label: "Designers",
+        name: "designers",
+        value: "designers",
+        checked: false,
+        onChange: () => {},
+      },
+      {
+        label: "Product / Project Experts",
+        name: "product_or_project_experts",
+        value: "product_or_project_experts",
+        checked: false,
+        onChange: () => {},
+      },
+      {
+        label: "Consultancy",
+        name: "consultancy",
+        value: "consultancy",
+        checked: false,
+        onChange: () => {},
+      },
+    ],
+  },
+  {
+    color: "#FFB77A",
+    title: "Unicorn Incoming",
+    description: "Is that a unicorn?! What MVPs does your team need?",
+    price: (
+      <p className="flex text-lg items-center font-semibold">
+        <span className="text-xl">$</span>
+        <span className="text-md">100</span>
+        <span className="text-xl">K+</span>
+      </p>
+    ),
+    options: [
+      {
+        label: "Developers + Engineers",
+        name: "developers_n_engineers",
+        value: "developers_n_engineers",
+        checked: true,
+        onChange: () => {},
+      },
+      {
+        label: "Designers",
+        name: "designers",
+        value: "designers",
+        checked: false,
+        onChange: () => {},
+      },
+      {
+        label: "Product / Project Experts",
+        name: "product_or_project_experts",
+        value: "product_or_project_experts",
+        checked: false,
+        onChange: () => {},
+      },
+      {
+        label: "Consultancy",
+        name: "consultancy",
+        value: "consultancy",
+        checked: false,
+        onChange: () => {},
+      },
+    ],
+  },
+];
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full">
+    <div className="min-h-screen max-w-screen-lg text-white mx-auto">
       <Header />
 
-      <main className="lg:pt-16 max-sm:pt-0 flex flex-col gap-4 p-4 sm:px-10">
+      <main className="lg:pt-16 max-md:pt-0 flex flex-col max-md:gap-6 md:gap-12 p-4 sm:px-10">
         <section className="max-sm:flex max-sm:flex-col gap-4 sm:grid sm:grid-cols-12">
           <div className="flex flex-col sm:pt-6 pt-0 sm:col-span-7 gap-4 ">
             <strong className="text-2xl">
@@ -37,16 +286,16 @@ export default function Home() {
             industries best
           </p>
         </section>
-        <section className="flex max-sm:flex-wrap justify-center flex-row items-center gap-4 max-sm:gap-1">
+        <section className="flex max-md:flex-wrap justify-center flex-row items-center gap-4 max-sm:gap-1">
           <div className="text-gray-400 text-xl font-bold">SEQUOIA</div>
           <div className="text-gray-400 text-xl font-bold">SEQUOIA</div>
           <div className="text-gray-400 text-xl font-bold">SEQUOIA</div>
           <div className="text-gray-400 text-xl font-bold">SEQUOIA</div>
           <div className="text-gray-400 text-xl font-bold">SEQUOIA</div>
         </section>
-        <section className="rounded-lg bg-white p-4 sm:px-10 gap-4 max-sm:flex max-sm:flex-col sm:grid sm:grid-cols-12">
+        <section className="card sm:px-10 gap-4 max-md:flex max-md:flex-col md:grid md:grid-cols-12">
           <div className="col-span-9 flex flex-col">
-            <strong className="text-xl sm:text-2xl font-bold text-black">
+            <strong className="text-xl md:text-2xl font-bold text-black">
               Better quality, better pricing. Scale with Evoluter
             </strong>
             <p className="text-sm text-gray-800">
@@ -64,28 +313,101 @@ export default function Home() {
             alt="hero 1"
             width={0}
             height={0}
-            className="rounded-sm h-full w-full sm:col-span-3 max-sm:hidden"
+            className="rounded-sm h-full w-full md:col-span-3 max-md:hidden"
             src={
               "https://res.cloudinary.com/dlavqnrlx/image/upload/v1751608443/qyprzyp7u2df29zns209.png"
             }
           />
-          <div className="flex flex-col col-span-4 bg-[#0D0D0D] rounded-2xl gap-2 cursor-pointer w-full sm:hover:scale-105 duration-200 p-4 items-center">
-            <Image
-              alt="hero 1"
-              width={0}
-              height={0}
-              className="rounded-2xl h-full w-full"
-              src={
-                "https://res.cloudinary.com/dlavqnrlx/image/upload/v1751608443/qyprzyp7u2df29zns209.png"
-              }
+          {data_card_hiring.map((item, i) => (
+            <CardHiringTalent
+              key={i}
+              color={item.color}
+              title={item.title}
+              subTitle={item.subTitle}
+              image={item.image}
             />
-            <strong className="text-xl font-bold text-white text-center">Hire Developers</strong>
-            <p className="text-sm text-gray-50 text-center">
-              Skilled software engineers, coders, and architects with extensive
-              knowledge in a wide array of technologies and industry sectors.
-            </p>
+          ))}
+          <div className="col-span-12 border rounded-lg flex max-sm:flex-col items-center justify-between gap-4 p-4">
+            <div className="flex flex-col flex-3">
+              <strong className="font-bold text-lg">
+                Or you can hire entire team
+              </strong>
+              <p className="text-sm text-gray-500 flex-1">
+                With our managed teams, you unlock the potential to access
+                dedicated full-time development resources, meticulously tailored
+                to meet your specific business needs, governance standards, and
+                technical requirements.
+              </p>
+            </div>
+            <Button className="bg-black max-sm:w-full justify-center text-white py-2">
+              Hire entire team
+            </Button>
           </div>
         </section>
+        <FeatureSection
+          title="Dynamic profiles of deeply vetted experts"
+          description="Experience a software-centric approach to solve any tech or
+              product challenge. Utilize Evoluter’s cutting-edge platform to
+              efficiently recruit, onboard, and effectively manage your
+              outsourced team or remote expert."
+          isImageLeft={true}
+        />
+        <FeatureSection
+          title="Co-piloted by Evoluter AI suite"
+          description="
+          Your new tech team co-pilots your product with our suite of AI tools and applications to provide increased productivity, reduce expenses, and solve complex business problems.
+          <br /><br />
+          Our proprietary AI matching engine helps to carefully select professionals from our vast talent pool, specifically tailored to meet your unique resource requirements."
+        />
+        <section className="flex max-sm:flex-col sm:grid sm:grid-cols-12 gap-4">
+          <strong className="max-sm:text-xl sm:text-2xl col-span-12 font-bold text-white text-center">
+            Why are companies and founders using Evoluter?
+          </strong>
+          {data_card_why.map((item, i) => (
+            <CardWhy
+              key={i}
+              color={item.color}
+              title={item.title}
+              metric={item.metric}
+              description={item.description}
+            />
+          ))}
+        </section>
+        <section className="flex flex-col items-center gap-4 w-full">
+          <h5 className="font-bold text-2xl text-white">Hiring made easy</h5>
+          {data_card_hiring_steps.map((item, i) => (
+            <CardHiringStep
+              key={i}
+              badgeColor={item.badgeColor}
+              title={item.title}
+              description={item.description}
+              badgeTitle={item.badgeTitle}
+            />
+          ))}
+        </section>
+        <section className="card flex fc md:grid md:grid-cols-3 gap-4 text-gray-900">
+          <h5 className="text-lg font-bold text-center col-span-3">
+            Or hire an entire team! Created by us, just for you
+          </h5>
+          <div className="flex justify-center items-center gap-2 col-span-3">
+            <strong className="text-lg font-thin">Monthly</strong>
+            <Switch />
+            <strong className="text-lg font-thin text-gray-400">Anually</strong>
+          </div>
+
+          {data_card_prices.map((item, i) => (
+            <CardPrice
+              color={item.color as "#ABFFC3" | "#0D0D0D" | "#FFB77A"}
+              description={item.description}
+              options={item.options}
+              price={item.price}
+              title={item.title}
+              key={i}
+            />
+          ))}
+          <strong className="text-sm font-semibold text-center col-span-3">Or let us know your budget and the size of team required and we can help make it work!</strong>
+        </section>
+        <div>hello worldz</div>
       </main>
     </div>
   );
