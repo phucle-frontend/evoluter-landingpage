@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { cn } from "@/lib/utils"; // optional helper if you're using shadcn/tailwind-merge
+import { colors } from "@/asset/color";
 
 
 
@@ -14,8 +15,8 @@ interface BadgeProps {
 
 const Badge: React.FC<BadgeProps> = ({
   title = "Badge",
-  color = "#000",
-  textColor = "#fff",
+  color = colors.BLACK,
+  textColor = colors.WHITE,
   icon,
   iconPosition='right',
   className,
@@ -26,7 +27,7 @@ const Badge: React.FC<BadgeProps> = ({
       color: textColor, backgroundColor: color
     }}
       className={cn(
-        "rounded-full inline-flex text-xs sm:text-md px-3 gap-1 items-center py-1 text-center font-medium text-[#ff33ff]",
+        "rounded-full inline-flex text-xs sm:text-md px-3 gap-1 items-center py-1 text-center font-medium",
         className,
         iconPosition === 'left' && 'flex-row-reverse'
       )}

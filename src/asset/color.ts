@@ -1,0 +1,11 @@
+export enum colors {
+    BLACK= '#000',
+    WHITE= '#fff',
+    RAZZLE_DAZZLE_ROSEAPPROX= '#FF33FF',
+    MIRAGE= '#1e2939',
+    COD_GRAY= '#0D0D0D',
+    MINT_GREEN= '#ABFFC3',
+    MACARONI_AND_CHEESE= '#FFB77A',
+    MINE_SHAFT= '#363636',
+    POMEGRAMATE= '#F52419'
+}

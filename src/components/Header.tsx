@@ -1,6 +1,5 @@
-import React from "react";
 import Button from "./Button";
-import { ChevronDown, LogIn, Menu } from "lucide-react";
+import { LogIn, Menu } from "lucide-react";
 import { headerConfigs, I_HEADER_CONFIGS_TYPE } from "@/config/header";
 
 const Header = () => {
@@ -18,9 +17,7 @@ const Header = () => {
                   <a
                     key={item.key}
                     href={item.link}
-                    className="cursor-pointer duration-200 rounded-md
-                  hover:bg-white hover:text-black
-                   px-3 py-1 text-white flex flex-row items-center"
+                    className="cursor-pointer duration-200 rounded-md hover:bg-white hover:text-black px-3 py-1 text-white flex flex-row items-center"
                   >
                     {item.title}
                   </a>

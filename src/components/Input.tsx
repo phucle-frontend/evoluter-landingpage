@@ -1,16 +1,14 @@
-import React, { Dispatch, SetStateAction } from "react";
+import { colors } from "@/asset/color";
+import { cn } from "@/lib/utils";
 
-const Input = ({
-  label,
-  value,
-  setValue,
-  placeholder,
-}: {
+interface InputProps {
   label?: string;
   placeholder?: string;
   value?: string;
   setValue?: () => void;
-}) => {
+}
+
+const Input = ({ label, value, setValue, placeholder }: InputProps) => {
   return (
     <div className="fc gap-1">
       <label className={label || "hidden"} htmlFor="">
@@ -21,7 +19,7 @@ const Input = ({
         placeholder={placeholder}
         value={value}
         onChange={setValue}
-        className="rounded-lg bg-[#363636] p-2 pl-3"
+        className={cn("rounded-lg  p-2 pl-3", `bg-[${colors.MINE_SHAFT}]`)}
       />
     </div>
   );

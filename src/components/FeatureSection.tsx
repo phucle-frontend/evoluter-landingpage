@@ -1,17 +1,20 @@
 import React from "react";
 import Badge from "./Badge";
+import { colors } from "@/asset/color";
+
+interface SectionProps {
+  isImageRight?: boolean;
+  title: string;
+  description: string;
+  badgeTitle?: string;
+}
 
 const FeatureSection = ({
   isImageRight = false,
   title,
   description,
-  badgeTitle
-}: {
-  isImageRight?: boolean;
-  title: string;
-  description: string;
-  badgeTitle?: string
-}) => {
+  badgeTitle,
+}: SectionProps) => {
   return (
     <section
       className={`flex flex-col-reverse md:flex-row ${
@@ -24,9 +27,9 @@ const FeatureSection = ({
         <div className="">
           <Badge
             title={badgeTitle}
-            color="#FFB77A"
+            color={colors.MACARONI_AND_CHEESE}
             className="font-semibold"
-            textColor="#000"
+            textColor={colors.BLACK}
           />
         </div>
         <strong className="text-white text-lg">{title}</strong>

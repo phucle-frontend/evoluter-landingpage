@@ -1,17 +1,18 @@
 import { ChevronDown } from "lucide-react";
-import React, { Dispatch, SetStateAction } from "react";
+
+interface PhoneInputProps {
+  label?: string;
+  placeholder?: string;
+  value?: string;
+  setValue?: () => void;
+}
 
 const PhoneInput = ({
   label,
   value,
   setValue,
   placeholder,
-}: {
-  label?: string;
-  placeholder?: string;
-  value?: string;
-  setValue?: () => void;
-}) => {
+}: PhoneInputProps) => {
   return (
     <div className="fc gap-1">
       <label className={label || "hidden"} htmlFor="">

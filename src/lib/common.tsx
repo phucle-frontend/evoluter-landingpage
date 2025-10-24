@@ -1,4 +1,6 @@
 export const truncateText = (text: string, maxLength: number) => {
-  if (text.length <= maxLength) return text;
-  return text.slice(0, maxLength) + "...";
+  const normalized = text.replace(/\r\n|\r/g, "\n");
+  
+  if (normalized.length <= maxLength) return normalized;
+  return normalized.slice(0, maxLength) + "...";
 };

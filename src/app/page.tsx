@@ -5,257 +5,33 @@ import CardHiringTalent, {
   E_COLOR_HIRING_CARD,
 } from "@/components/CardHiringTalent";
 import Header from "@/components/Header";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Heart } from "lucide-react";
 import Image from "next/image";
 import FeatureSection from "@/components/FeatureSection";
 import CardWhy from "@/components/CardWhy";
 import CardHiringStep from "@/components/CardHiringStep";
 import Switch from "@/components/Switch";
 import CardPrice from "@/components/CardPrice";
-import { data_required_sections, date_featured_sections } from "@/config/home";
+import {
+  data_card_hiring,
+  data_card_hiring_steps,
+  data_card_prices,
+  data_card_why,
+  data_card_why2,
+  data_required_sections,
+  data_reviews,
+  date_featured_sections,
+} from "@/config/home";
 import RequiredSection from "@/components/RequiredSection";
 import Input from "@/components/Input";
 import PhoneInput from "@/components/PhoneInput";
 import Section from "@/components/Section";
-
-const data_card_hiring = [
-  {
-    color: E_COLOR_HIRING_CARD.BLACK,
-    title: "Hire Developers",
-    image:
-      "https://res.cloudinary.com/dlavqnrlx/image/upload/v1751608443/qyprzyp7u2df29zns209.png",
-    subTitle:
-      "Skilled software engineers, coders, and architects with extensive knowledge in a wide array of technologies and industry sectors.",
-  },
-  {
-    color: E_COLOR_HIRING_CARD.ORANGE,
-    title: "Hire Designers",
-    image:
-      "https://res.cloudinary.com/dlavqnrlx/image/upload/v1751608443/qyprzyp7u2df29zns209.png",
-    subTitle:
-      " Highly skilled UI, UX designers, illustrators, animators, and other creative professionals at the forefront of design.",
-  },
-  {
-    color: E_COLOR_HIRING_CARD.GREEN,
-    title: "Hire Product Experts",
-    image:
-      "https://res.cloudinary.com/dlavqnrlx/image/upload/v1751608443/qyprzyp7u2df29zns209.png",
-    subTitle:
-      "Top-tier product managers and owners who have handled the full lifecycle of products at some of the world’s biggest tech companies.",
-  },
-];
-
-const data_card_why = [
-  {
-    title: "Speed",
-    color: "#ABFFC3",
-    metric: (
-      <p className="flex items-center">
-        1-<span className="text-xl">3</span>&nbsp;days
-      </p>
-    ),
-    description: (
-      <p className="text-sm">
-        to fill <span className="font-bold">most roles</span>, sometimes we can
-        start the same day.
-      </p>
-    ),
-  },
-  {
-    title: "Timed Saved",
-    color: "#FCFCFC",
-    metric: (
-      <p className="flex items-center">
-        <span className="text-xl">5</span>0+ hours
-      </p>
-    ),
-    description: (
-      <p className="text-sm">
-        of your teams time saved{" "}
-        <span className="font-bold">per candidate</span> on interviewing
-      </p>
-    ),
-  },
-  {
-    title: "Retention ",
-    color: "#FFB77A",
-    metric: (
-      <p className="flex items-center">
-        <span className="text-xl">3</span>0%
-      </p>
-    ),
-    description: (
-      <p className="text-sm">
-        is the average <span className="font-bold">cost savings</span> our
-        clients experienced.
-      </p>
-    ),
-  },
-];
-
-const data_card_hiring_steps = [
-  {
-    badgeTitle: "Step 1",
-    badgeColor: "#FFB77A",
-    title: "Talk to one of our industry Experts",
-    description:
-      "An expert on our team will work with you to understand your goals, product, technical needs, team dynamics and budget.",
-  },
-  {
-    badgeTitle: "Step 2",
-    badgeColor: "#ABFFC3",
-    title: "Work with hand-selected talent",
-    description:
-      "Within days, we'll introduce you to the right talent for your project. Average time to match is under 24 hours.",
-  },
-  {
-    badgeTitle: "Step 3",
-    badgeColor: "#FFB77A",
-    title: "The right fit, guaranteed",
-    description:
-      "Work with your new team members on a risk-free trial basis, ensuring you hire the right people for the job.",
-  },
-  {
-    badgeTitle: "Step 4",
-    badgeColor: "#ABFFC3",
-    title: "Easy to manage, start to finish",
-    description:
-      "Leverage our remarkable platform for seamless management of payments, reporting, work tracking, communication, and more — ensuring your project's success.",
-  },
-];
-
-const data_card_prices = [
-  {
-    color: "#ABFFC3",
-    title: "Starting Out",
-    description: "What superheroes does your startup need?",
-    price: (
-      <p className="flex text-lg items-center font-semibold">
-        <span className="text-xl">$</span>
-        <span className="text-md">0</span>
-        <span className="text-xl">-$</span>
-        <span className="text-md">20</span>
-        <span className="text-xl">K</span>
-      </p>
-    ),
-    options: [
-      {
-        label: "Developers + Engineers",
-        name: "developers_n_engineers",
-        value: "developers_n_engineers",
-        checked: true,
-        onChange: () => {},
-      },
-      {
-        label: "Designers",
-        name: "designers",
-        value: "designers",
-        checked: false,
-        onChange: () => {},
-      },
-      {
-        label: "Product / Project Experts",
-        name: "product_or_project_experts",
-        value: "product_or_project_experts",
-        checked: false,
-        onChange: () => {},
-      },
-      {
-        label: "Consultancy",
-        name: "consultancy",
-        value: "consultancy",
-        checked: false,
-        onChange: () => {},
-      },
-    ],
-  },
-  {
-    color: "#0D0D0D",
-    title: "Booming Business",
-    description: "What type of legends does your booming business need?",
-    price: (
-      <p className="flex text-lg items-center font-semibold">
-        <span className="text-xl">$</span>
-        <span className="text-md">20</span>
-        <span className="text-xl">-$</span>
-        <span className="text-md">100</span>
-        <span className="text-xl">K</span>
-      </p>
-    ),
-    options: [
-      {
-        label: "Developers + Engineers",
-        name: "developers_n_engineers",
-        value: "developers_n_engineers",
-        checked: true,
-        onChange: () => {},
-      },
-      {
-        label: "Designers",
-        name: "designers",
-        value: "designers",
-        checked: false,
-        onChange: () => {},
-      },
-      {
-        label: "Product / Project Experts",
-        name: "product_or_project_experts",
-        value: "product_or_project_experts",
-        checked: false,
-        onChange: () => {},
-      },
-      {
-        label: "Consultancy",
-        name: "consultancy",
-        value: "consultancy",
-        checked: false,
-        onChange: () => {},
-      },
-    ],
-  },
-  {
-    color: "#FFB77A",
-    title: "Unicorn Incoming",
-    description: "Is that a unicorn?! What MVPs does your team need?",
-    price: (
-      <p className="flex text-lg items-center font-semibold">
-        <span className="text-xl">$</span>
-        <span className="text-md">100</span>
-        <span className="text-xl">K+</span>
-      </p>
-    ),
-    options: [
-      {
-        label: "Developers + Engineers",
-        name: "developers_n_engineers",
-        value: "developers_n_engineers",
-        checked: true,
-        onChange: () => {},
-      },
-      {
-        label: "Designers",
-        name: "designers",
-        value: "designers",
-        checked: false,
-        onChange: () => {},
-      },
-      {
-        label: "Product / Project Experts",
-        name: "product_or_project_experts",
-        value: "product_or_project_experts",
-        checked: false,
-        onChange: () => {},
-      },
-      {
-        label: "Consultancy",
-        name: "consultancy",
-        value: "consultancy",
-        checked: false,
-        onChange: () => {},
-      },
-    ],
-  },
-];
+import { colors } from "@/asset/color";
+import TalentDisplaySection from "@/components/TalentDisplaySection";
+import { cn } from "@/lib/utils";
+import SectionWhy2 from "@/components/SectionWhy2";
+import SectionReview from "@/components/SectionReview";
+import { truncateText } from "@/lib/common";
 
 export default function Home() {
   return (
@@ -278,13 +54,8 @@ export default function Home() {
               icon={<ArrowRight className="w-4 h-4" />}
             />
           </div>
-          <Image
-            alt="hero 1"
-            src="https://res.cloudinary.com/dlavqnrlx/image/upload/v1752983480/ujf8tlbtobqlwzvznjet.jpg"
-            width={0}
-            height={0}
-            className="rounded-sm h-full w-full sm:col-span-5"
-          />
+          <div className="w-full h-full bg-gray-200 sm:col-span-5 rounded-xl"></div>
+
           <p className="col-span-12 mt-4 text-center text-sm">
             Trusted by leading brands and startups backed and advised by the
             industries best
@@ -298,7 +69,7 @@ export default function Home() {
           <div className="text-gray-400 text-xl font-bold">SEQUOIA</div>
         </Section>
         <Section className="card  max-md:flex bg-white max-md:flex-col md:grid md:grid-cols-12">
-          <div className="col-span-9 flex flex-col">
+          <div className="col-span-9 gap-4 flex flex-col">
             <strong className="text-xl md:text-2xl font-bold text-black">
               Better quality, better pricing. Scale with Evoluter
             </strong>
@@ -313,15 +84,7 @@ export default function Home() {
               companies trust Evoluter to build their products and projects.
             </p>
           </div>
-          <Image
-            alt="hero 1"
-            width={0}
-            height={0}
-            className="rounded-sm h-full w-full md:col-span-3 max-md:hidden"
-            src={
-              "https://res.cloudinary.com/dlavqnrlx/image/upload/v1751608443/qyprzyp7u2df29zns209.png"
-            }
-          />
+          <div className="rounded-lg h-full w-full md:col-span-3 max-md:hidden bg-gray-200"></div>
           {data_card_hiring.map((item, i) => (
             <CardHiringTalent
               key={i}
@@ -349,7 +112,7 @@ export default function Home() {
           </div>
         </Section>
         <FeatureSection
-        isImageRight
+          isImageRight
           description={date_featured_sections[0].description}
           title={date_featured_sections[0].title}
           badgeTitle={date_featured_sections[0].badgeTitle}
@@ -374,7 +137,7 @@ export default function Home() {
           ))}
         </Section>
         <Section className="p-0! items-center w-full">
-          <h5 className="font-bold text-2xl text-white">Hiring made easy</h5>
+          <h3 className="font-bold text-2xl text-white">Hiring made easy</h3>
           {data_card_hiring_steps.map((item, i) => (
             <CardHiringStep
               key={i}
@@ -386,9 +149,9 @@ export default function Home() {
           ))}
         </Section>
         <Section className="card flex md:grid md:grid-cols-3 bg-white text-gray-900">
-          <h5 className="h5 text-center col-span-3">
+          <h3 className="h3 text-center col-span-3">
             Or hire an entire team! Created by us, just for you
-          </h5>
+          </h3>
           <div className="flex justify-center items-center gap-2 col-span-3">
             <strong className="text-lg font-thin">Monthly</strong>
             <Switch />
@@ -399,7 +162,12 @@ export default function Home() {
 
           {data_card_prices.map((item, i) => (
             <CardPrice
-              color={item.color as "#ABFFC3" | "#0D0D0D" | "#FFB77A"}
+              color={
+                item.color as
+                  | colors.MINT_GREEN
+                  | colors.COD_GRAY
+                  | colors.MACARONI_AND_CHEESE
+              }
               description={item.description}
               options={item.options}
               price={item.price}
@@ -407,15 +175,15 @@ export default function Home() {
               key={i}
             />
           ))}
-          <strong className="text-sm font-semibold text-center col-span-3">
+          <strong className="text-sm font-semibold text-center col-span-3 leading-4">
             Or let us know your budget and the size of team required and we can
             help make it work!
           </strong>
         </Section>
         <Section className="card border bg-transparent sm:grid sm:grid-cols-12 border-gray-200">
-          <h5 className="h5 text-center col-span-12">
+          <h3 className="h3 text-center col-span-12">
             Let us know what you need!
-          </h5>
+          </h3>
           <div className="fc gap-4 sm:col-span-6">
             {data_required_sections.map((item) => (
               <RequiredSection key={item.title} data={item} />
@@ -446,6 +214,17 @@ export default function Home() {
           title={date_featured_sections[3].title}
           badgeTitle={date_featured_sections[3].badgeTitle}
         />
+        <Section className="px-0!">
+          <h3 className="h3 text-center">Meet some of our talent at Evoluter</h3>
+          <TalentDisplaySection />
+        </Section>
+        <SectionWhy2 />
+        <SectionReview />
+
+        <Section>
+          <h3 className="h3">You have questions?</h3>
+          <h3 className="h3">We have the answers!</h3>
+        </Section>
       </main>
     </div>
   );
