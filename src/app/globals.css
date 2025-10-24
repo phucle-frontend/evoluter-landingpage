@@ -2,10 +2,16 @@
 
 @layer components {
   .card {
-    @apply bg-white rounded-lg p-4;
+    @apply rounded-lg p-4;
   }
   .fc {
     @apply flex flex-col
+  }
+  .h5 {
+    @apply text-lg font-bold
+  }
+  .bg-primary {
+    @apply bg-red-300
   }
 }
 

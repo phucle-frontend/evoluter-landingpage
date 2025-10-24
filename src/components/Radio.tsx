@@ -52,8 +52,7 @@ const Radio: React.FC<RadioProps> = ({
         )}
       </span>
 
-      {/* Label text (color controlled by className or inherits) */}
-      <span className="text-sm md:text-lg font-medium">{label}</span>
+      <span className="text-sm md:text-md font-medium">{label}</span>
     </label>
   );
 };

@@ -30,13 +30,18 @@ const CardPrice = ({
       }}
     >
       <strong className="font-bold text-lg">{title}</strong>
-      <div className={`w-full h-px ${color !== '#0D0D0D' ? 'bg-gray-800' : 'bg-gray-50'} `} />
+      <div
+        className={`w-full h-px ${
+          color !== "#0D0D0D" ? "bg-gray-800" : "bg-gray-50"
+        } `}
+      />
       {price}
       <p className="font-semibold text-sm">{description}</p>
       {options.map((item) => (
         <Radio
-          color={color === '#0D0D0D'  ? '#fff' : '#111'}
-          className={color === '#0D0D0D'  ? '#fff' : '#111'}
+          key={item.name}
+          color={color === "#0D0D0D" ? "#fff" : "#111"}
+          className={color === "#0D0D0D" ? "#fff" : "#111"}
           label={item.label}
           name={item.name}
           value={item.value}

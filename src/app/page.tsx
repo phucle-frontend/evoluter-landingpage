@@ -2,20 +2,25 @@
 import Button from "@/components/Button";
 import CardHiringTalent, {
   COLOR_HIRING_CARD,
+  E_COLOR_HIRING_CARD,
 } from "@/components/CardHiringTalent";
 import Header from "@/components/Header";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import Badge from "@/components/Badge";
 import FeatureSection from "@/components/FeatureSection";
 import CardWhy from "@/components/CardWhy";
 import CardHiringStep from "@/components/CardHiringStep";
 import Switch from "@/components/Switch";
 import CardPrice from "@/components/CardPrice";
+import { data_required_sections, date_featured_sections } from "@/config/home";
+import RequiredSection from "@/components/RequiredSection";
+import Input from "@/components/Input";
+import PhoneInput from "@/components/PhoneInput";
+import Section from "@/components/Section";
 
 const data_card_hiring = [
   {
-    color: COLOR_HIRING_CARD.BLACK,
+    color: E_COLOR_HIRING_CARD.BLACK,
     title: "Hire Developers",
     image:
       "https://res.cloudinary.com/dlavqnrlx/image/upload/v1751608443/qyprzyp7u2df29zns209.png",
@@ -23,7 +28,7 @@ const data_card_hiring = [
       "Skilled software engineers, coders, and architects with extensive knowledge in a wide array of technologies and industry sectors.",
   },
   {
-    color: COLOR_HIRING_CARD.ORANGE,
+    color: E_COLOR_HIRING_CARD.ORANGE,
     title: "Hire Designers",
     image:
       "https://res.cloudinary.com/dlavqnrlx/image/upload/v1751608443/qyprzyp7u2df29zns209.png",
@@ -31,7 +36,7 @@ const data_card_hiring = [
       " Highly skilled UI, UX designers, illustrators, animators, and other creative professionals at the forefront of design.",
   },
   {
-    color: COLOR_HIRING_CARD.GREEN,
+    color: E_COLOR_HIRING_CARD.GREEN,
     title: "Hire Product Experts",
     image:
       "https://res.cloudinary.com/dlavqnrlx/image/upload/v1751608443/qyprzyp7u2df29zns209.png",
@@ -256,9 +261,8 @@ export default function Home() {
   return (
     <div className="min-h-screen max-w-screen-lg text-white mx-auto">
       <Header />
-
       <main className="lg:pt-16 max-md:pt-0 flex flex-col max-md:gap-6 md:gap-12 p-4 sm:px-10">
-        <section className="max-sm:flex max-sm:flex-col gap-4 sm:grid sm:grid-cols-12">
+        <Section className="max-sm:flex max-sm:flex-col  sm:grid sm:grid-cols-12">
           <div className="flex flex-col sm:pt-6 pt-0 sm:col-span-7 gap-4 ">
             <strong className="text-2xl">
               Hire Expert Software Developers Supported by AI
@@ -285,15 +289,15 @@ export default function Home() {
             Trusted by leading brands and startups backed and advised by the
             industries best
           </p>
-        </section>
-        <section className="flex max-md:flex-wrap justify-center flex-row items-center gap-4 max-sm:gap-1">
+        </Section>
+        <Section className="flex max-md:flex-wrap justify-center flex-row items-center  max-sm:gap-1">
           <div className="text-gray-400 text-xl font-bold">SEQUOIA</div>
           <div className="text-gray-400 text-xl font-bold">SEQUOIA</div>
           <div className="text-gray-400 text-xl font-bold">SEQUOIA</div>
           <div className="text-gray-400 text-xl font-bold">SEQUOIA</div>
           <div className="text-gray-400 text-xl font-bold">SEQUOIA</div>
-        </section>
-        <section className="card sm:px-10 gap-4 max-md:flex max-md:flex-col md:grid md:grid-cols-12">
+        </Section>
+        <Section className="card  max-md:flex bg-white max-md:flex-col md:grid md:grid-cols-12">
           <div className="col-span-9 flex flex-col">
             <strong className="text-xl md:text-2xl font-bold text-black">
               Better quality, better pricing. Scale with Evoluter
@@ -327,9 +331,9 @@ export default function Home() {
               image={item.image}
             />
           ))}
-          <div className="col-span-12 border rounded-lg flex max-sm:flex-col items-center justify-between gap-4 p-4">
+          <div className="col-span-12 border border-black rounded-lg flex max-sm:flex-col items-center justify-between gap-4 p-4 px-6">
             <div className="flex flex-col flex-3">
-              <strong className="font-bold text-lg">
+              <strong className="font-bold text-lg text-black">
                 Or you can hire entire team
               </strong>
               <p className="text-sm text-gray-500 flex-1">
@@ -343,23 +347,19 @@ export default function Home() {
               Hire entire team
             </Button>
           </div>
-        </section>
+        </Section>
         <FeatureSection
-          title="Dynamic profiles of deeply vetted experts"
-          description="Experience a software-centric approach to solve any tech or
-              product challenge. Utilize Evoluter’s cutting-edge platform to
-              efficiently recruit, onboard, and effectively manage your
-              outsourced team or remote expert."
-          isImageLeft={true}
+        isImageRight
+          description={date_featured_sections[0].description}
+          title={date_featured_sections[0].title}
+          badgeTitle={date_featured_sections[0].badgeTitle}
         />
         <FeatureSection
-          title="Co-piloted by Evoluter AI suite"
-          description="
-          Your new tech team co-pilots your product with our suite of AI tools and applications to provide increased productivity, reduce expenses, and solve complex business problems.
-          <br /><br />
-          Our proprietary AI matching engine helps to carefully select professionals from our vast talent pool, specifically tailored to meet your unique resource requirements."
+          description={date_featured_sections[1].description}
+          title={date_featured_sections[1].title}
+          badgeTitle={date_featured_sections[1].badgeTitle}
         />
-        <section className="flex max-sm:flex-col sm:grid sm:grid-cols-12 gap-4">
+        <Section className="flex p-0! flex-col sm:grid sm:grid-cols-12">
           <strong className="max-sm:text-xl sm:text-2xl col-span-12 font-bold text-white text-center">
             Why are companies and founders using Evoluter?
           </strong>
@@ -372,8 +372,8 @@ export default function Home() {
               description={item.description}
             />
           ))}
-        </section>
-        <section className="flex flex-col items-center gap-4 w-full">
+        </Section>
+        <Section className="p-0! items-center w-full">
           <h5 className="font-bold text-2xl text-white">Hiring made easy</h5>
           {data_card_hiring_steps.map((item, i) => (
             <CardHiringStep
@@ -384,15 +384,17 @@ export default function Home() {
               badgeTitle={item.badgeTitle}
             />
           ))}
-        </section>
-        <section className="card flex fc md:grid md:grid-cols-3 gap-4 text-gray-900">
-          <h5 className="text-lg font-bold text-center col-span-3">
+        </Section>
+        <Section className="card flex md:grid md:grid-cols-3 bg-white text-gray-900">
+          <h5 className="h5 text-center col-span-3">
             Or hire an entire team! Created by us, just for you
           </h5>
           <div className="flex justify-center items-center gap-2 col-span-3">
             <strong className="text-lg font-thin">Monthly</strong>
             <Switch />
-            <strong className="text-lg font-thin text-gray-400">Anually</strong>
+            <strong className="text-lg font-thin text-gray-400">
+              Annually
+            </strong>
           </div>
 
           {data_card_prices.map((item, i) => (
@@ -405,9 +407,45 @@ export default function Home() {
               key={i}
             />
           ))}
-          <strong className="text-sm font-semibold text-center col-span-3">Or let us know your budget and the size of team required and we can help make it work!</strong>
-        </section>
-        <div>hello worldz</div>
+          <strong className="text-sm font-semibold text-center col-span-3">
+            Or let us know your budget and the size of team required and we can
+            help make it work!
+          </strong>
+        </Section>
+        <Section className="card border bg-transparent sm:grid sm:grid-cols-12 border-gray-200">
+          <h5 className="h5 text-center col-span-12">
+            Let us know what you need!
+          </h5>
+          <div className="fc gap-4 sm:col-span-6">
+            {data_required_sections.map((item) => (
+              <RequiredSection key={item.title} data={item} />
+            ))}
+          </div>
+          <div className="fc gap-4 sm:col-span-6">
+            <Input label="Name" placeholder="Enter your name" />
+            <Input label="Email" placeholder="Enter your email" />
+            <PhoneInput
+              label="Phone number"
+              placeholder="+380 (00) 000 - 00 - 00"
+            />
+            <Button
+              className="bg-white  text-black py-2 flex justify-center font-semibold"
+              title="Get started"
+              icon={<ChevronRight />}
+            />
+          </div>
+        </Section>
+        <FeatureSection
+          description={date_featured_sections[2].description}
+          title={date_featured_sections[2].title}
+          isImageRight
+          badgeTitle={date_featured_sections[2].badgeTitle}
+        />
+        <FeatureSection
+          description={date_featured_sections[3].description}
+          title={date_featured_sections[3].title}
+          badgeTitle={date_featured_sections[3].badgeTitle}
+        />
       </main>
     </div>
   );
