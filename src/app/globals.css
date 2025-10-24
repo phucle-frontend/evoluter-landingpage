@@ -13,6 +13,9 @@
   .bg-primary {
     @apply bg-red-300
   }
+  .jb {
+    @apply justify-between flex
+  }
 }
 
 

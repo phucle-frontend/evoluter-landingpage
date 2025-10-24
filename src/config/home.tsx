@@ -311,15 +311,141 @@ export const data_card_why2 = [
 
 export const data_reviews = [
   {
-    author: 'Peter Graves',
-    position: 'Ceo of',
-    companyName: 'YC Combinator Launch',
-    review: 'Evoluter helps entrepreneurs tap into a much more cost-effective solution to hire elite, pre-vetted teams and individuals. The ability to scale a full-size team at a fraction of the cost is amazing, not to mention their experience in shipping world-class products.'
+    author: "Peter Graves",
+    position: "Ceo of",
+    companyName: "YC Combinator Launch",
+    review:
+      "Evoluter helps entrepreneurs tap into a much more cost-effective solution to hire elite, pre-vetted teams and individuals. The ability to scale a full-size team at a fraction of the cost is amazing, not to mention their experience in shipping world-class products.",
   },
   {
-    author: 'Michael Lee',
-    position: 'Head of Product',
-    companyName: 'Disney',
-    review: 'Outsourcing product builds from our discovery team to Evoluter has helped us to go to market with speed and quality. The fully managed teams they integrate into our company are absolutely crucial to our success, ability to iterate, and continuously launch new features and ideas.'
-  }
-]
+    author: "Michael Lee",
+    position: "Head of Product",
+    companyName: "Disney",
+    review:
+      "Outsourcing product builds from our discovery team to Evoluter has helped us to go to market with speed and quality. The fully managed teams they integrate into our company are absolutely crucial to our success, ability to iterate, and continuously launch new features and ideas.",
+  },
+];
+
+export const data_FAQs = [
+  {
+    title: "Are there any upfront recruiting or contractual costs",
+    expandText:
+      "Absolutely not! We meet with you first to ensure that Evoluter is the right fit for you. And once you engage with us and our amazing team members, we do not charge you any recruitment fees or contractual costs. You just pay for work delivered.",
+  },
+  {
+    title: "Can I cancel Evoluter at anytime?",
+    expandText:
+      "Absolutely not! We meet with you first to ensure that Evoluter is the right fit for you. And once you engage with us and our amazing team members, we do not charge you any recruitment fees or contractual costs. You just pay for work delivered.",
+  },
+  {
+    title: "What happen if I'm not satisfied with an Evoluter expert?",
+    expandText:
+      "Absolutely not! We meet with you first to ensure that Evoluter is the right fit for you. And once you engage with us and our amazing team members, we do not charge you any recruitment fees or contractual costs. You just pay for work delivered.",
+  },
+  {
+    title:
+      "Are English skills ever an issue when working with Evoluter expert?",
+    expandText:
+      "Absolutely not! We meet with you first to ensure that Evoluter is the right fit for you. And once you engage with us and our amazing team members, we do not charge you any recruitment fees or contractual costs. You just pay for work delivered.",
+  },
+  {
+    title:
+      "Who owns the legal rights to the work created by an Evoluter expert?",
+    expandText:
+      "Absolutely not! We meet with you first to ensure that Evoluter is the right fit for you. And once you engage with us and our amazing team members, we do not charge you any recruitment fees or contractual costs. You just pay for work delivered.",
+  },
+];
+
+export enum E_FOOTER_TYPE {
+  SERVICES = "Services",
+  COMPANY = "Company",
+  RESOURCES = "Resources",
+  HIRE_EXPERTS = "Hire Experts",
+}
+
+export interface FOOTER_SECTION {
+  type: E_FOOTER_TYPE;
+  links: { title: string; href: string }[];
+}
+
+export const data_footer: FOOTER_SECTION[] = [
+  {
+    type: E_FOOTER_TYPE.SERVICES,
+    links: [
+      {
+        title: "Services overview",
+        href: "#",
+      },
+      {
+        title: "Managed teams",
+        href: "#",
+      },
+      {
+        title: "Application Development",
+        href: "#",
+      },
+      {
+        title: "Cloud Services",
+        href: "#",
+      },
+      {
+        title: "AI Services",
+        href: "#",
+      },
+    ],
+  },
+  {
+    type: E_FOOTER_TYPE.COMPANY,
+    links: [
+      {
+        title: "Services overview",
+        href: "#",
+      },
+      {
+        title: "Managed teams",
+        href: "#",
+      },
+      {
+        title: "Application Development",
+        href: "#",
+      },
+      {
+        title: "Cloud Services",
+        href: "#",
+      },
+      {
+        title: "AI Services",
+        href: "#",
+      },
+    ],
+  },
+  {
+    type: E_FOOTER_TYPE.RESOURCES,
+    links: [
+      {
+        title: "Services overview",
+        href: "#",
+      },
+      {
+        title: "Managed teams",
+        href: "#",
+      },
+      {
+        title: "Application Development",
+        href: "#",
+      },
+      {
+        title: "Cloud Services",
+        href: "#",
+      },
+      {
+        title: "AI Services",
+        href: "#",
+      },
+    ],
+  },
+  {
+    type: E_FOOTER_TYPE.HIRE_EXPERTS,
+    links: [{ href: "#", title: "Why" }],
+  },
+];

@@ -8,7 +8,7 @@ import Section from './Section'
 
 const SectionReview = () => {
   return (
-      <Section className="fc md:grid md:grid-cols-2">
+      <Section className="fc md:grid md:grid-cols-2 md:px-0!">
           <div className="fc gap-2">
             <h3 className="flex items-center gap-2 justify-center">
               People{" "}

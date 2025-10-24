@@ -5,7 +5,13 @@ import CardHiringTalent, {
   E_COLOR_HIRING_CARD,
 } from "@/components/CardHiringTalent";
 import Header from "@/components/Header";
-import { ArrowRight, ChevronLeft, ChevronRight, Heart } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  Heart,
+  PlusCircle,
+} from "lucide-react";
 import Image from "next/image";
 import FeatureSection from "@/components/FeatureSection";
 import CardWhy from "@/components/CardWhy";
@@ -18,6 +24,8 @@ import {
   data_card_prices,
   data_card_why,
   data_card_why2,
+  data_FAQs,
+  data_footer,
   data_required_sections,
   data_reviews,
   date_featured_sections,
@@ -32,6 +40,9 @@ import { cn } from "@/lib/utils";
 import SectionWhy2 from "@/components/SectionWhy2";
 import SectionReview from "@/components/SectionReview";
 import { truncateText } from "@/lib/common";
+import SectionWhy1 from "@/components/SectionWhy1";
+import Accordion from "@/components/Accordion";
+import FooterSectionItem from "@/components/FooterSectionItem";
 
 export default function Home() {
   return (
@@ -122,20 +133,7 @@ export default function Home() {
           title={date_featured_sections[1].title}
           badgeTitle={date_featured_sections[1].badgeTitle}
         />
-        <Section className="flex p-0! flex-col sm:grid sm:grid-cols-12">
-          <strong className="max-sm:text-xl sm:text-2xl col-span-12 font-bold text-white text-center">
-            Why are companies and founders using Evoluter?
-          </strong>
-          {data_card_why.map((item, i) => (
-            <CardWhy
-              key={i}
-              color={item.color}
-              title={item.title}
-              metric={item.metric}
-              description={item.description}
-            />
-          ))}
-        </Section>
+        <SectionWhy1 />
         <Section className="p-0! items-center w-full">
           <h3 className="font-bold text-2xl text-white">Hiring made easy</h3>
           {data_card_hiring_steps.map((item, i) => (
@@ -215,15 +213,37 @@ export default function Home() {
           badgeTitle={date_featured_sections[3].badgeTitle}
         />
         <Section className="px-0!">
-          <h3 className="h3 text-center">Meet some of our talent at Evoluter</h3>
+          <h3 className="h3 text-center">
+            Meet some of our talent at Evoluter
+          </h3>
           <TalentDisplaySection />
         </Section>
         <SectionWhy2 />
         <SectionReview />
-
-        <Section>
-          <h3 className="h3">You have questions?</h3>
-          <h3 className="h3">We have the answers!</h3>
+        <Section className="fc lg:grid lg:grid-cols-3 md:px-0!">
+          <div className="fc col-span-1 gap-4">
+            <h3 className="h3">You have questions?</h3>
+            <h3 className="h3">We have the answers!</h3>
+          </div>
+          <Accordion data={data_FAQs} />
+        </Section>
+        <Section
+          className="card items-center text-black"
+          style={{ backgroundColor: colors.MACARONI_AND_CHEESE }}
+        >
+          <h5 className="text-3xl font-bold">
+            Hire developers, designers and product managers
+          </h5>
+          <p>
+            Tell us the skills you need and we'll connect you with your
+            superstar!
+          </p>
+          <Button className="bg-black max-sm:w-full justify-center text-white py-2">
+            Hire experts
+          </Button>
+        </Section>
+        <Section className="px-0! gap-4 ">
+          <FooterSectionItem data={data_footer} />
         </Section>
       </main>
     </div>

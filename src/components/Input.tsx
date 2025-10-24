@@ -5,12 +5,18 @@ interface InputProps {
   label?: string;
   placeholder?: string;
   value?: string;
+  className?: string;
   setValue?: () => void;
 }
 
-const Input = ({ label, value, setValue, placeholder }: InputProps) => {
+const Input = ({ label, value, setValue, placeholder, className }: InputProps) => {
   return (
-    <div className="fc gap-1">
+    <div className={
+      cn(
+        "fc gap-1",
+        className
+      )
+    }>
       <label className={label || "hidden"} htmlFor="">
         {label}
       </label>
